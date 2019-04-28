@@ -17,4 +17,11 @@ elif [[ $1 == "-ram" ]] ; then
 elif [[ $1 == "-network" ]] ; then
 	echo "network information requested"
 	ifconfig
+elif [[ $1 == "-all" ]] ; then
+	echo "all information requested"
+	df -h --output='source','target','iused','iavail'
+	lscpu
+	sudo lshw -short -C memory
+	ifconfig
 fi
+
